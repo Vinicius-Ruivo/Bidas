@@ -1,12 +1,9 @@
 import type { NextConfig } from "next";
 import path from "path";
-import { fileURLToPath } from "url";
-
-const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
-  /* Evita que o build use lockfile fora desta pasta (comum no Windows). */
-  outputFileTracingRoot: projectRoot,
+  /* Raiz do projeto no build (Vercel/Linux + Windows); evita confusão com lockfile fora da pasta. */
+  outputFileTracingRoot: path.resolve(process.cwd()),
 };
 
 export default nextConfig;
