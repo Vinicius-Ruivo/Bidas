@@ -1,0 +1,73 @@
+/** Vozes pré-definidas do Gemini TTS — https://ai.google.dev/gemini-api/docs/speech-generation#voices */
+
+export const GEMINI_TTS_VOICE_NAMES = [
+  "Zephyr",
+  "Puck",
+  "Charon",
+  "Kore",
+  "Fenrir",
+  "Leda",
+  "Orus",
+  "Aoede",
+  "Callirrhoe",
+  "Autonoe",
+  "Enceladus",
+  "Iapetus",
+  "Umbriel",
+  "Algieba",
+  "Despina",
+  "Erinome",
+  "Algenib",
+  "Rasalgethi",
+  "Laomedeia",
+  "Achernar",
+  "Alnilam",
+  "Schedar",
+  "Gacrux",
+  "Pulcherrima",
+  "Achird",
+  "Zubenelgenubi",
+  "Vindemiatrix",
+  "Sadachbia",
+  "Sadaltager",
+  "Sulafat",
+] as const;
+
+export type GeminiTtsVoiceName = (typeof GEMINI_TTS_VOICE_NAMES)[number];
+
+export const GEMINI_TTS_VOICE_OPTIONS: { value: GeminiTtsVoiceName; label: string }[] = [
+  { value: "Kore", label: "Kore — firme (padrão estilo assistente)" },
+  { value: "Charon", label: "Charon — informativo / didático" },
+  { value: "Aoede", label: "Aoede — leve / fluído" },
+  { value: "Sulafat", label: "Sulafat — caloroso" },
+  { value: "Achird", label: "Achird — amigável" },
+  { value: "Vindemiatrix", label: "Vindemiatrix — suave" },
+  { value: "Puck", label: "Puck — animado" },
+  { value: "Leda", label: "Leda — jovem" },
+  { value: "Fenrir", label: "Fenrir — expressivo" },
+  { value: "Zephyr", label: "Zephyr — brilhante / claro" },
+  { value: "Enceladus", label: "Enceladus — suave (breathy)" },
+  { value: "Algieba", label: "Algieba — liso" },
+  { value: "Despina", label: "Despina — liso / calmo" },
+  { value: "Iapetus", label: "Iapetus — claro" },
+  { value: "Erinome", label: "Erinome — claro" },
+  { value: "Orus", label: "Orus — firme" },
+  { value: "Callirrhoe", label: "Callirrhoe — descontraído" },
+  { value: "Autonoe", label: "Autonoe — brilhante" },
+  { value: "Umbriel", label: "Umbriel — descontraído" },
+  { value: "Algenib", label: "Algenib — grave / texturizado" },
+  { value: "Rasalgethi", label: "Rasalgethi — informativo" },
+  { value: "Laomedeia", label: "Laomedeia — animado" },
+  { value: "Achernar", label: "Achernar — macio" },
+  { value: "Alnilam", label: "Alnilam — firme" },
+  { value: "Schedar", label: "Schedar — uniforme" },
+  { value: "Gacrux", label: "Gacrux — maduro" },
+  { value: "Pulcherrima", label: "Pulcherrima — direto" },
+  { value: "Zubenelgenubi", label: "Zubenelgenubi — casual" },
+  { value: "Sadachbia", label: "Sadachbia — vivo" },
+  { value: "Sadaltager", label: "Sadaltager — confiante" },
+];
+
+export function isAllowedGeminiTtsVoice(name: string): name is GeminiTtsVoiceName {
+  return (GEMINI_TTS_VOICE_NAMES as readonly string[]).includes(name);
+}
