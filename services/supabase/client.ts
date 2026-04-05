@@ -8,8 +8,12 @@ export function createSupabaseClient(): SupabaseClient<Database> | null {
     return null;
   }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!.trim();
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!.trim();
 
-  return createClient<Database>(supabaseUrl, supabaseAnonKey);
+  try {
+    return createClient<Database>(supabaseUrl, supabaseAnonKey);
+  } catch {
+    return null;
+  }
 }

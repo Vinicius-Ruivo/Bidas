@@ -11,11 +11,14 @@ export function PwaRegister() {
   const { canInstall, install, isInstalled } = usePwa();
 
   useEffect(() => {
-    if (!("serviceWorker" in navigator)) return;
+    if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
 
-    void navigator.serviceWorker.register("/sw.js").then(() => {
-      setSwReady(true);
-    });
+    void navigator.serviceWorker
+      .register("/sw.js")
+      .then(() => setSwReady(true))
+      .catch(() => {
+        /* preview/iframes ou política do browser — não deve derrubar a página */
+      });
   }, []);
 
   if (isInstalled) return null;

@@ -20,8 +20,9 @@ type I18nContextValue = {
 const I18nContext = createContext<I18nContextValue | null>(null);
 
 function interpolate(template: string, params?: Record<string, string>): string {
-  if (!params) return template;
-  let out = template;
+  const base = template ?? "";
+  if (!params) return base;
+  let out = base;
   for (const [k, v] of Object.entries(params)) {
     out = out.replaceAll(`{{${k}}}`, v);
   }
@@ -61,7 +62,8 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     return {
       locale,
       setLocale,
-      t: (key: MessageKey, params?: Record<string, string>) => interpolate(dict[key], params),
+      t: (key: MessageKey, params?: Record<string, string>) =>
+        interpolate(dict[key] ?? String(key), params),
       speechLang: locale === "pt-BR" ? "pt-BR" : "en-US",
       dateLocale: locale === "pt-BR" ? "pt-BR" : "en-US",
     };
