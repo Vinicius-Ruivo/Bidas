@@ -3,7 +3,7 @@
 import { Siren, Stethoscope } from "lucide-react";
 
 import { BidasChat } from "@/components/bidas-chat";
-import { DoseCalculator } from "@/components/dose-calculator";
+import { ModulesCenter } from "@/components/modules-center";
 import { PatientList } from "@/components/patient-list";
 import { PatientRegistrationForm } from "@/components/patient-registration-form";
 import { Label } from "@/components/ui/label";
@@ -60,7 +60,6 @@ export function BidasDashboard() {
       </section>
 
       <section className="grid gap-6 xl:grid-cols-2">
-        <DoseCalculator initialWeightKg={activePatient?.peso_kg ?? 0} />
         <div className="rounded-xl border border-border bg-card p-6">
           <h2 className="text-xl font-semibold">{t("dashboard.activePatientTitle")}</h2>
           {activePatient ? (
@@ -82,6 +81,22 @@ export function BidasDashboard() {
             <p className="mt-3 text-sm text-zinc-400">{t("dashboard.selectPatient")}</p>
           )}
         </div>
+        <div className="rounded-xl border border-border bg-card p-6">
+          <h2 className="text-xl font-semibold">Visão de Produto</h2>
+          <p className="mt-3 text-sm text-zinc-300">
+            Plataforma modular em evolução para cobrir doses, protocolo, checklist, monitorização, ficha digital e ECG com foco
+            em segurança perioperatória.
+          </p>
+          <div className="mt-3 space-y-2 text-xs text-zinc-400">
+            <p>Fase 1 (MVP): módulos 01 e 03.</p>
+            <p>Fase 2 (Tração): módulos 02 e 05.</p>
+            <p>Fase 3+ (Expansão/Diferencial): módulos 04 e 06.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Módulos do VetAnest.IA">
+        <ModulesCenter activePatient={activePatient} />
       </section>
 
       <section aria-label={t("dashboard.chatAria")}>

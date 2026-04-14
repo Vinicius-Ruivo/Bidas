@@ -3,7 +3,9 @@
 Co-piloto de anestesiologia veterinária em Next.js 15 com foco em usabilidade no centro cirúrgico:
 
 - Cadastro de pacientes com persistência (Supabase, com fallback local para desenvolvimento)
-- Calculadora inicial de doses por peso com fórmula explícita e confirmação obrigatória
+- Central modular VetAnest.IA com os 6 módulos da especificação (doses, protocolo, checklist, monitor, ficha e ECG)
+- Calculadora de doses integrada ao paciente ativo com filtros por fármaco, ajuste conservador por ASA e alertas
+- Gerador de protocolo e checklist com regras clínicas determinísticas para MVP local (baixo custo de API)
 - Base de schema SQL para fluxo perioperatório e trilha de monitoramento
 - PWA com `manifest`, `service worker` e instalação no dispositivo
 
