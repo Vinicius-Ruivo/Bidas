@@ -56,7 +56,6 @@ Desktop.ini
 *.swp
 *.swo
 
-# Cursor / agentes (cache local, não precisa no repositório)
 .cursor/
 
 # TypeScript (next-env.d.ts é gerado pelo Next; pode versionar para o IDE em clones novos)
