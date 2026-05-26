@@ -535,7 +535,7 @@ export function ModulesCenter({ activePatient }: { activePatient: PacienteRow | 
                   </Select>
                 </div>
               </div>
-              <Alert variant={suggestedAsa === "IV" ? "critical" : suggestedAsa === "III" ? "warning" : "normal"}>
+              <Alert variant={suggestedAsa === "IV" || suggestedAsa === "V" ? "critical" : suggestedAsa === "III" ? "warning" : "normal"}>
                 Classificação ASA sugerida: <strong>ASA {suggestedAsa}</strong>
               </Alert>
               {checklistAlerts.length === 0 ? (
