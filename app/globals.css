@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #fafafa;
-  --muted: #0a0a0a;
-  --muted-foreground: #71717a;
-  --card: #0a0a0a;
-  --card-foreground: #f4f4f5;
-  --border: #1f2937;
-  --primary: #4ade80;
-  --primary-foreground: #052e16;
+  --background: #0b0f1a;
+  --foreground: #f8fafc;
+  --muted: #121a2b;
+  --muted-foreground: #94a3b8;
+  --card: #121a2b;
+  --card-foreground: #f1f5f9;
+  --border: #1e293b;
+  --primary: #22d3ee;
+  --primary-foreground: #083344;
   --warning: #facc15;
   --critical: #ef4444;
 }
@@ -42,4 +42,9 @@ body {
 
 .font-display {
   font-family: var(--font-syne), var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.mobile-app-shell {
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, rgba(34, 211, 238, 0.08), transparent 50%),
+    #0b0f1a;
 }

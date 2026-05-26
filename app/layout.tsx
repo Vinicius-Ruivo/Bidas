@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description:
     "Co-piloto de anestesiologia veterinária com calculadora de doses e prontuário perioperatório.",
   manifest: "/manifest.webmanifest",
-  themeColor: "#000000",
+  themeColor: "#0b0f1a",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",

@@ -8,6 +8,8 @@ export type AtendimentoRecord = {
   raca: string;
   pesoKg: number;
   tutorNome: string;
+  sexo?: string;
+  idadeAnos?: number;
   asa: "I" | "II" | "III" | "IV" | "V";
   status: AtendimentoStatus;
   intercorrencia?: string;
@@ -39,10 +41,12 @@ export const DEMO_ATENDIMENTO: AtendimentoRecord = {
   nome: "Thor",
   especie: "Canino",
   raca: "Golden Retriever",
-  pesoKg: 32,
+  pesoKg: 28,
+  sexo: "Macho",
+  idadeAnos: 3,
   tutorNome: "Carlos Mendes",
   asa: "II",
-  status: "encerrado",
+  status: "ativo",
   intercorrencia: "Hipotensão leve no T30, corrigida com fluidoterapia",
   vitals: {
     pa: "110/70",

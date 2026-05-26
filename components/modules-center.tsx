@@ -179,8 +179,14 @@ function asaAlertVariant(asa: AsaClass): "critical" | "warning" | "normal" {
   return "normal";
 }
 
-export function ModulesCenter({ activePatient }: { activePatient: PacienteRow | null }) {
-  const [activeModule, setActiveModule] = useState<ModuleId>("01");
+export function ModulesCenter({
+  activePatient,
+  initialModule = "01",
+}: {
+  activePatient: PacienteRow | null;
+  initialModule?: ModuleId;
+}) {
+  const [activeModule, setActiveModule] = useState<ModuleId>(initialModule);
 
   const [species, setSpecies] = useState<SpeciesOption>("cao");
   const [asa, setAsa] = useState<AsaClass>("II");
