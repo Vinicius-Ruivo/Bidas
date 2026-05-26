@@ -158,7 +158,7 @@ function protocolByRisk(params: {
   return { riskLevel, mpa, inducao, manutencao, cuidados, alternativas };
 }
 
-function suggestAsa(inputs: { hematocrit: number | null; creatinine: number | null; murmurGrade: number }) {
+function suggestAsa(inputs: { hematocrit: number | null; creatinine: number | null; murmurGrade: number }): AsaClass {
   let asa: AsaClass = "I";
   if (inputs.hematocrit !== null && inputs.hematocrit < 30) asa = "II";
   if (inputs.creatinine !== null && inputs.creatinine >= 1.6) asa = "III";
@@ -169,7 +169,14 @@ function suggestAsa(inputs: { hematocrit: number | null; creatinine: number | nu
   ) {
     asa = "IV";
   }
+  if (inputs.hematocrit !== null && inputs.hematocrit < 15) asa = "V";
   return asa;
+}
+
+function asaAlertVariant(asa: AsaClass): "critical" | "warning" | "normal" {
+  if (asa === "IV" || asa === "V") return "critical";
+  if (asa === "III") return "warning";
+  return "normal";
 }
 
 export function ModulesCenter({ activePatient }: { activePatient: PacienteRow | null }) {
@@ -535,7 +542,7 @@ export function ModulesCenter({ activePatient }: { activePatient: PacienteRow | 
                   </Select>
                 </div>
               </div>
-              <Alert variant={suggestedAsa === "IV" || suggestedAsa === "V" ? "critical" : suggestedAsa === "III" ? "warning" : "normal"}>
+              <Alert variant={asaAlertVariant(suggestedAsa)}>
                 Classificação ASA sugerida: <strong>ASA {suggestedAsa}</strong>
               </Alert>
               {checklistAlerts.length === 0 ? (
